@@ -1,0 +1,56 @@
+{
+  "name": "lab-dean",
+  "version": "1.0.0",
+  "description": "## Installation To install this app fork then clone the repo down to your own machine. Navigate to the directory named ```lab-dean``` and type ```npm install``` to get all of the NPM packages needed for the app. It is recommended to download either ```HTTPie``` or ```Postman``` to run the functions of the app, along with ```MongoDB```.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
+    "start:debug": "DEBUG=http* nodemon index.js",
+    "test": "jest -i",
+    "test:watch": "jest -i --watchAll",
+    "test:debug": "DEBUG=http* jest -i",
+    "lint": "eslint .",
+    "lint:test": "npm run lint && npm test",
+    "start-db": "mkdir -p ./data/db && mongod --dbpath ./data/db",
+    "stop-db": "killall mongod"
+  },
+  "jest": {
+    "setupFiles": [
+      "./__test__/lib/jest-setup.js"
+    ],
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "/__test__/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "author": "dean",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "jest": "^22.2.1",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.3",
+    "superagent": "^3.8.2"
+  },
+  "devDependencies": {}
+}
